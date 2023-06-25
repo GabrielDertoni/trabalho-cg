@@ -1,0 +1,3 @@
+[submodule "submodules/rasterizer"]
+	path = submodules/rasterizer
+	url = https://github.com/GabrielDertoni/rust-rasterizer

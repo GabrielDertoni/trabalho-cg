@@ -1,0 +1,70 @@
+[[models]]
+name = "terrain"
+path = "assets/lost_empire/lost_empire.obj"
+
+[[models]]
+name = "steve"
+path = "assets/steve/steve.obj"
+position = [-33.0, 12.5, 26.1]
+rotation = [0.0, 0.0, -90.0]
+
+[[models]]
+name = "minecart"
+path = "assets/blocks/minecart.obj"
+position = [-33.0, 12.5, 25.3]
+
+[[models]]
+name = "glowstone"
+path = "assets/blocks/glowstone.obj"
+
+[[models]]
+name = "wither"
+path = "assets/wither-skeleton/wither-skeleton.obj"
+position = [0.0, 0.0, 32.0]
+
+[[models]]
+name = "creeper"
+path = "assets/creeper/creeper.obj"
+position = [11.0, -5.0, 29.0]
+rotation = [90.0, 0.0, 0.0]
+scale = [0.5, 0.5, 0.5]
+
+[[models]]
+name = "bee"
+path = "assets/bee/bee.obj"
+position = [-21.0, 30.0, 36.0]
+
+[[models]]
+name = "heart"
+path = "assets/heart/Heart.obj"
+position = [-7.4, 28.0, 12.0]
+
+[[lights]]
+name = "sun"
+kind = "spot"
+position = [0.0, 0.0, 68.0]
+forward = [0.0, 0.0, -1.0]
+
+[camera]
+kind = "fpv"
+up = "z"
+position = [-7.4, 30.8, 12.7]
+rotation = [87.4295, 0.0, -180.382]
+fovy = 70.0
+sensitivity = 0.05
+speed = 5.0
+
+[rendering]
+width = 1280
+height = 720
+fps = 30.0
+near = 0.1
+far = 50
+alpha-clip = 0.1
+cull-mode = "disabled"
+
+[rasterizer]
+implementation = "bbox-simd"
+
+[config]
+enable-shadows = false
