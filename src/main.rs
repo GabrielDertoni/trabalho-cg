@@ -17,6 +17,8 @@ use winit::{
     event_loop::EventLoopBuilder,
     window::{CursorGrabMode, Window, WindowBuilder},
 };
+#[cfg(not(target_os = "linux"))]
+use winit::dpi::PhysicalPosition;
 
 use std::ops::Range;
 use std::path::PathBuf;
@@ -186,7 +188,6 @@ impl World {
 
         let egui_ctx = egui::Context::default();
         egui_ctx.tessellation_options_mut(|options| {
-            // options.feathering = false;
             options.feathering = true;
         });
 
@@ -393,7 +394,6 @@ impl World {
     }
 
     pub fn handle_event<T>(&mut self, event: Event<T>) -> Response {
-        let mut is_mouse_click = false;
         let response = match &event {
             &Event::WindowEvent {
                 event:
@@ -424,18 +424,12 @@ impl World {
                         ..
                     },
                 ..
-            } => {
-                is_mouse_click = true;
-                Response::empty()
-            }
+            } => Response::empty(),
             _ => Response::empty(),
         };
 
         if !response.consumed {
             let response = self.gui_ctx.as_mut().unwrap().handle_event(event);
-            if !response.consumed && is_mouse_click {
-                // self.has_focus = true;
-            }
             // Suppress the redraw requests comming from the gui
             if let Some(Cmd::Redraw) = &response.cmd {
                 return Response {
